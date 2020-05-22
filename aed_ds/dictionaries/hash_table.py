@@ -1,9 +1,8 @@
 from .tad_dictionary import Dictionary
 from ..exceptions import NoSuchElementException, DuplicatedKeyException
 from ..lists.singly_linked_list import SinglyLinkedList
-from .item import Item 
-
-import ctypes 
+from .item import Item
+import ctypes
 
 class HashTable(Dictionary):
     def __init__(self, size=101):
@@ -21,7 +20,11 @@ class HashTable(Dictionary):
     def is_full(self):
         return self.num_elements == self.array_size
 
-    def get(self, k): pass
+    def get(self, k):
+        idx = self.hash_function(k)
+        colision_list = self.table[idx]
+        for i in range(colision_list):
+            return colision_list.get(i)
 
     def insert(self, k, v):
         # Check if it has key
