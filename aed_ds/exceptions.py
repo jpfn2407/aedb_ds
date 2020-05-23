@@ -6,4 +6,7 @@ class InvalidPositionException(Exception):
 
 class NoSuchElementException(Exception):
     pass
+
+class DuplicatedKeyException(Exception):
+    pass
     
