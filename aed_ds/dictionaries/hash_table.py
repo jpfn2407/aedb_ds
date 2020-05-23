@@ -37,15 +37,16 @@ class HashTable(Dictionary):
         if self.has_key(k):
             raise DuplicatedKeyException()
 
-        ## Insert new item
-        # Calculate the table index
-        idx = self.hash_function(k) # O(1)
-        # Create a new Item
-        item = Item(k, v)
-        # Insert the item in the colision list
-        self.table[idx].insert_last(item)
-        # Update the number of elements
-        self.num_elements += 1    
+        elif not self.is_full():
+            ## Insert new item
+            # Calculate the table index
+            idx = self.hash_function(k) # O(1)
+            # Create a new Item
+            item = Item(k, v)
+            # Insert the item in the colision list
+            self.table[idx].insert_last(item)
+            # Update the number of elements
+            self.num_elements += 1    
 
     def update(self, k, v):
         if not self.has_key(k):
