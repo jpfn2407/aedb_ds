@@ -29,7 +29,8 @@ class HashTable(Dictionary):
         it = colision_list.iterator()
         while it.has_next():
             current_item = it.next()
-            return current_item.get_value()
+            if current_item.get_key() == k:
+                current_item.get_value()
 
     def insert(self, k, v):
         # Check if it has key
@@ -46,7 +47,17 @@ class HashTable(Dictionary):
         # Update the number of elements
         self.num_elements += 1    
 
-    def update(self, k, v): pass
+    def update(self, k, v):
+        if not self.has_key(k):
+            raise NoSuchElementException()
+
+        idx = self.hash_function(k)
+        colision_list = self.table[idx]
+        it = colision_list.iterator()
+        while it.has_next():
+            current_item = it.next()
+            if current_item.get_key() == k:
+                current_item.set_value(v)    
 
     def remove(self, k): pass
 
