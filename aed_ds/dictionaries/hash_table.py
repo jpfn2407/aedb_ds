@@ -59,7 +59,20 @@ class HashTable(Dictionary):
             if current_item.get_key() == k:
                 current_item.set_value(v)    
 
-    def remove(self, k): pass
+    def remove(self, k):
+        if not self.has_key(k):
+            raise NoSuchElementException()
+
+        idx = self.hash_function(k)
+        colision_list = self.table[idx]
+        it = colision_list.iterator()
+        i = 0
+        while it.has_next():
+            current_item = it.next()
+            if current_item.get_key() == k:
+                self.table[idx].remove(i)
+            i+=1    
+
 
     def keys(self): pass
 
