@@ -36,7 +36,8 @@ class HashTable(Dictionary):
         # Check if it has key
         if self.has_key(k):
             raise DuplicatedKeyException()
-
+        
+        # Check if it's not full
         elif not self.is_full():
             ## Insert new item
             # Calculate the table index
