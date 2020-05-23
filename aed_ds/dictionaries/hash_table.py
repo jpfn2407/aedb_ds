@@ -21,10 +21,15 @@ class HashTable(Dictionary):
         return self.num_elements == self.array_size
 
     def get(self, k):
+        if not self.has_key(k):
+            raise NoSuchElementException()
+
         idx = self.hash_function(k)
         colision_list = self.table[idx]
-        for i in range(colision_list):
-            return colision_list.get(i)
+        it = colision_list.iterator()
+        while it.has_next():
+            current_item = it.next()
+            return current_item.get_value()
 
     def insert(self, k, v):
         # Check if it has key
