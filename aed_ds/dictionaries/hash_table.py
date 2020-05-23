@@ -93,7 +93,15 @@ class HashTable(Dictionary):
                 value_list.insert_last(current_item.get_value())
         return value_list
 
-    def items(self): pass
+    def items(self):
+        item_list = SinglyLinkedList()
+        for i in range(self.array_size):
+            colision_list = self.table[i]
+            it = colision_list.iterator()
+            while it.has_next():
+                current_item = it.next()
+                item_list.insert_last(current_item)
+        return item_list
 
     def hash_function(self, k):
         return sum([ord(c) for c in k]) % self.array_size
