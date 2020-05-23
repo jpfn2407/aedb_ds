@@ -73,8 +73,15 @@ class HashTable(Dictionary):
                 self.table[idx].remove(i)
             i+=1    
 
-
-    def keys(self): pass
+    def keys(self):
+        key_list = SinglyLinkedList()
+        for i in range(self.array_size):
+            colision_list = self.table[i]
+            it = colision_list.iterator()
+            while it.has_next():
+                current_item = it.next()
+                key_list.insert_last(current_item.get_key())
+        return key_list
 
     def values(self): pass
 
