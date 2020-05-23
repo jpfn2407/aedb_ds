@@ -83,7 +83,15 @@ class HashTable(Dictionary):
                 key_list.insert_last(current_item.get_key())
         return key_list
 
-    def values(self): pass
+    def values(self):
+        value_list = SinglyLinkedList()
+        for i in range(self.array_size):
+            colision_list = self.table[i]
+            it = colision_list.iterator()
+            while it.has_next():
+                current_item = it.next()
+                value_list.insert_last(current_item.get_value())
+        return value_list
 
     def items(self): pass
 
