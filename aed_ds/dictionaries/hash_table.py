@@ -30,7 +30,7 @@ class HashTable(Dictionary):
         while it.has_next():
             current_item = it.next()
             if current_item.get_key() == k:
-                current_item.get_value()
+                return current_item.get_value()
 
     def insert(self, k, v):
         # Check if it has key
@@ -72,6 +72,7 @@ class HashTable(Dictionary):
         while it.has_next():
             current_item = it.next()
             if current_item.get_key() == k:
+                #self.table[idx].get(i)
                 self.table[idx].remove(i)
             i+=1    
 
