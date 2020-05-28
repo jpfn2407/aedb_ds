@@ -74,6 +74,7 @@ class HashTable(Dictionary):
             if current_item.get_key() == k:
                 #self.table[idx].get(i)
                 self.table[idx].remove(i)
+                self.num_elements -= 1
             i+=1    
 
     def keys(self):

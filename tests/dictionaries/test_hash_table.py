@@ -4,7 +4,7 @@ from aed_ds.dictionaries.hash_table import HashTable
 
 class TestHashTable(unittest.TestCase):
     def setUp(self):
-        self.hash_table = HashTable()
+        self.hash_table = HashTable(10)
 
     def add_items(self, quantity, offset=0):
         for i in range(quantity):
@@ -23,8 +23,8 @@ class TestHashTable(unittest.TestCase):
 
     def test_if_full(self):
         self.assertFalse(self.hash_table.is_full())
-        self.add_items(101)
-        self.assertEqual(self.hash_table.size(), 101)
+        self.add_items(10)
+        self.assertEqual(self.hash_table.size(), 10)
         self.assertTrue(self.hash_table.is_full())
 
     def test_get(self):
