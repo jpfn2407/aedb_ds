@@ -3,3 +3,6 @@
 htmlcov/
 .coverage
 program.py
+build/
+dist/
+*.egg-info/

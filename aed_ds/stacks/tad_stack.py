@@ -1,12 +1,14 @@
 from abc import ABC, abstractmethod
+
+
 class Stack(ABC):
     # Returns true iff the stack contains no elements.
     @abstractmethod
-    def isEmpty(self): pass
+    def is_empty(self): pass
 
     # Returns true iff the stack cannot contain more elements.
     @abstractmethod
-    def isFull(self): pass
+    def is_full(self): pass
 
     # Returns the number of elements in the stack.
     @abstractmethod
