@@ -43,6 +43,7 @@ class TestBinarySearchTree(unittest.TestCase):
         self.tree.insert(5, "value_5")
         with self.assertRaises(DuplicatedKeyException):
             self.tree.insert(5, "value_5")
+        self.assertFalse(type(self.tree.root), "NoneType")    
 
     def test_update(self):
         with self.assertRaises(NoSuchElementException):
@@ -92,11 +93,11 @@ class TestBinarySearchTree(unittest.TestCase):
         self.assertEqual(self.tree.values().get(4).get_key(), 5)
 
     def test_iterator(self):
-        self.assertIsInstance(self.iterator(), Iterator)
+        self.assertIsInstance(self.tree.iterator(), Iterator)
 
     def test_get_min_element(self):
         with self.assertRaises(EmptyTreeException):
-            self.tree.test_get_min_element()
+            self.tree.get_min_element()
         self.tree.insert(2, "value_2")
         self.tree.insert(5, "value_5")
         self.tree.insert(3, "value_3")
@@ -106,7 +107,7 @@ class TestBinarySearchTree(unittest.TestCase):
 
     def test_get_max_element(self):
         with self.assertRaises(EmptyTreeException):
-            self.tree.test_get_max_element()
+            self.tree.get_max_element()
         self.tree.insert(2, "value_2")
         self.tree.insert(5, "value_5")
         self.tree.insert(3, "value_3")
